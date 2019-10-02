@@ -134,7 +134,7 @@ namespace TimeZoneConverter.DataBuilder
                 var inMappingSection = false;
                 while (!reader.EndOfStream)
                 {
-                    var line = reader.ReadLine().Trim();
+                    var line = reader.ReadLine()?.Trim();
                     if (inMappingSection)
                     {
                         if (line == "}")

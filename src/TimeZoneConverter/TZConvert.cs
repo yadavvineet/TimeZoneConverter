@@ -334,6 +334,7 @@ namespace TimeZoneConverter
                 }
                 catch
                 {
+                    throw new KeyNotFoundException();
                 }
             }
 
@@ -351,7 +352,7 @@ namespace TimeZoneConverter
 
             foreach (var name in KnownIanaTimeZoneNames)
             {
-                TimeZoneInfo tzi = null;
+                TimeZoneInfo tzi;
 
                 try
                 {
@@ -359,6 +360,7 @@ namespace TimeZoneConverter
                 }
                 catch 
                 {
+                    throw new KeyNotFoundException();
                 }
 
                 if (tzi != null)
