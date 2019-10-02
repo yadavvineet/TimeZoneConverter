@@ -134,14 +134,14 @@ namespace TimeZoneConverter.DataBuilder
                 var inMappingSection = false;
                 while (!reader.EndOfStream)
                 {
-                    var line = reader.ReadLine().Trim();
+                    var line = reader.ReadLine()?.Trim();
                     if (inMappingSection)
                     {
                         if (line == "}")
                             break;
 
-                        var parts = line.Split("=>");
-                        data.Add(parts[0].Trim() + "," + parts[1].Trim().TrimEnd(','));
+                        var parts = line?.Split("=>");
+                        if (parts != null) data.Add(parts[0].Trim() + "," + parts[1].Trim().TrimEnd(','));
                     }
                     else if (line == "MAPPING = {")
                         inMappingSection = true;
