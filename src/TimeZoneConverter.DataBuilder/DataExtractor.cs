@@ -140,8 +140,8 @@ namespace TimeZoneConverter.DataBuilder
                         if (line == "}")
                             break;
 
-                        var parts = line.Split("=>");
-                        data.Add(parts[0].Trim() + "," + parts[1].Trim().TrimEnd(','));
+                        var parts = line?.Split("=>");
+                        if (parts != null) data.Add(parts[0].Trim() + "," + parts[1].Trim().TrimEnd(','));
                     }
                     else if (line == "MAPPING = {")
                         inMappingSection = true;
